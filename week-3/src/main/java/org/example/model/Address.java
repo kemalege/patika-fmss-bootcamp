@@ -1,4 +1,4 @@
-package org.week3.model;
+package org.example.model;
 
 public class Address {
 
