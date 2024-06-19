@@ -1,9 +1,5 @@
 package org.example.exception;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ExceptionMessages {
     
     public static final String CUSTOMER_NOT_FOUND = "customer bulunamadı.";
