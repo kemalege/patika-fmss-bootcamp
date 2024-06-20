@@ -7,7 +7,12 @@ public class ProductSaveRequest {
     private String name;
     private BigDecimal amount;
     private String description;
-    private String publisherName;
+
+    public ProductSaveRequest(String name, BigDecimal amount, String description) {
+        this.name = name;
+        this.amount = amount;
+        this.description = description;
+    }
 
     public String getName() {
         return name;
@@ -33,13 +38,6 @@ public class ProductSaveRequest {
         this.description = description;
     }
 
-    public String getPublisherName() {
-        return publisherName;
-    }
-
-    public void setPublisherName(String publisherName) {
-        this.publisherName = publisherName;
-    }
 }
 
 
