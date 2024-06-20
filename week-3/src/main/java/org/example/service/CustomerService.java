@@ -8,7 +8,6 @@ import org.example.model.Customer;
 import org.example.repository.CustomerRepository;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public class CustomerService {
@@ -31,7 +30,7 @@ public class CustomerService {
 
         customerRepository.createCustomer(customer);
 
-        System.out.println("customer created. {}" + customer.getEmail());
+        System.out.println("customer created." + customer.getEmail());
     }
 
     public List<Customer> getCustomerList() {
@@ -47,5 +46,9 @@ public class CustomerService {
         }
 
         return foundCustomer.get();
+    }
+
+    public List<Customer> getCustomersCreatedInJune() {
+        return customerRepository.getCustomersCreatedInJune();
     }
 }
