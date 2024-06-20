@@ -4,6 +4,7 @@ import org.example.dto.request.CustomerSaveRequest;
 import org.example.model.Customer;
 import org.example.util.HashUtil;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class CustomerConverter {
@@ -15,6 +16,7 @@ public class CustomerConverter {
 
         Customer customer = new Customer(request.getName(), request.getSurname(), request.getEmail(), hashedPassword);
         customer.setId(idCounter.incrementAndGet());
+        customer.setCreateDate(LocalDateTime.now());
         return customer;
     }
 }
