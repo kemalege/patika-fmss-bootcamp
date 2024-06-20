@@ -15,6 +15,7 @@ public class InvoiceConverter {
     public static Invoice toInvoice(InvoiceSaveRequest request) {
         return new Invoice(
                 request.getId(),
+                request.getCustomerId(),
                 request.getTotalAmount()
         );
     }
@@ -22,6 +23,7 @@ public class InvoiceConverter {
     public static InvoiceResponse toResponse(Invoice invoice) {
         return new InvoiceResponse(
                 invoice.getId(),
+                invoice.getCustomerId(),
                 invoice.getTotalAmount()
         );
     }
