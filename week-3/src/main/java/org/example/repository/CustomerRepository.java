@@ -5,6 +5,7 @@ import org.example.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CustomerRepository {
 
@@ -30,4 +31,16 @@ public class CustomerRepository {
                 .findFirst();
     }
 
+    public List<Customer> getCustomersCreatedInJune() {
+        return getCustomerList().stream()
+                .filter(customer -> customer.getCreateDate().getMonthValue() == 6)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerRepository{" +
+                "customerList=" + customerList +
+                '}';
+    }
 }
