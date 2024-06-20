@@ -9,14 +9,14 @@ public class Order {
     private List<Product> productList;
     private String orderCode; //-ordercode generate
     private Long customerId;
-    private Long invoiceId;
+    private Invoice invoice;
 
-    public Order(LocalDateTime createDate, List<Product> productList, String orderCode, Long customerId, Long invoiceId) {
+    public Order(LocalDateTime createDate, List<Product> productList, String orderCode, Long customerId, Invoice invoice) {
         this.createDate = createDate;
         this.productList = productList;
         this.orderCode = orderCode;
         this.customerId = customerId;
-        this.invoiceId = invoiceId;
+        this.invoice = invoice;
     }
 
     public LocalDateTime getCreateDate() {
@@ -51,12 +51,12 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public Long getInvoiceId() {
-        return invoiceId;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setInvoiceId(Long invoiceId) {
-        this.invoiceId = invoiceId;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 }
 

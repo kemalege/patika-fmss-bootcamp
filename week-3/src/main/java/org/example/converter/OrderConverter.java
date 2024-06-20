@@ -1,37 +1,38 @@
 package org.example.converter;
 
-import com.patika.kitapyurdum.dto.request.OrderSaveRequest;
-import com.patika.kitapyurdum.dto.response.OrderResponse;
-import com.patika.kitapyurdum.model.Order;
-import com.patika.kitapyurdum.model.enums.OrderStatus;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import org.example.dto.request.OrderSaveRequest;
+import org.example.dto.response.OrderResponse;
+import org.example.model.Invoice;
+import org.example.model.Order;
+import org.example.model.Product;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderConverter {
 
-    public static Order toOrder(OrderSaveRequest request) {
-        return Order.builder()
-                .orderCode(UUID.randomUUID().toString())
-                .createDate(request.getCreateDate())
-                .orderStatus(OrderStatus.INITIAL)
-                .productList(request.getProductList())
-                .customerId(request.getCustomerId())
-                .build();
+    private static final AtomicLong idCounter = new AtomicLong();
+
+    public static Order toOrder(OrderSaveRequest request, List<Product> productList, Invoice invoice) {
+        return new Order(
+                request.getCreateDate(),
+                productList,
+                UUID.randomUUID().toString(),
+                request.getCustomerId(),
+                invoice
+        );
     }
 
     public static OrderResponse toResponse(Order order) {
-        return OrderResponse.builder()
-                .orderCode(order.getOrderCode())
-                .productList(order.getProductList())
-                .createDate(order.getCreateDate())
-                .orderStatus(order.getOrderStatus())
-                .customerId(order.getCustomerId())
-                .build();
+        return new OrderResponse(
+                order.getOrderCode(),
+                order.getProductList(),
+                order.getCreateDate(),
+                order.getCustomerId(),
+                order.getInvoice().getId()
+        );
     }
 
     public static List<OrderResponse> toResponse(List<Order> orders) {
