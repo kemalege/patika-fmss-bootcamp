@@ -58,5 +58,16 @@ public class Order {
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "createDate=" + createDate +
+                ", productList=" + productList +
+                ", orderCode='" + orderCode + '\'' +
+                ", customerId=" + customerId +
+                ", invoice=" + invoice +
+                '}';
+    }
 }
 

@@ -45,4 +45,13 @@ public class Product {
         Product product = (Product) o;
         return Objects.equals(name, product.name);
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
