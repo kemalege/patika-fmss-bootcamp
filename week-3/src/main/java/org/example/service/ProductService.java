@@ -5,6 +5,8 @@ import org.example.dto.request.ProductSaveRequest;
 import org.example.dto.response.ProductResponse;
 import org.example.model.Product;
 import org.example.repository.ProductRepository;
+
+import java.util.List;
 import java.util.Set;
 
 public class ProductService {
@@ -28,4 +30,7 @@ public class ProductService {
         return ProductConverter.toResponse(productRepository.getAll());
     }
 
+    public List<Product> getByIdList(List<Long> productIdList) {
+        return productRepository.getAll().stream().toList();
+    }
 }
