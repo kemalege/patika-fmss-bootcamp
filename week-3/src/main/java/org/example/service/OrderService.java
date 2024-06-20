@@ -33,7 +33,7 @@ public class OrderService {
 
         BigDecimal totalInvoiceAmount = sumProductAmounts(productList);
 
-        InvoiceSaveRequest invoiceSaveRequest = new InvoiceSaveRequest(idCounter.incrementAndGet(), totalInvoiceAmount);
+        InvoiceSaveRequest invoiceSaveRequest = new InvoiceSaveRequest(idCounter.incrementAndGet(), request.getCustomerId(), totalInvoiceAmount);
 
         Invoice invoice = InvoiceConverter.toInvoice(invoiceSaveRequest);
         invoiceService.save(invoiceSaveRequest);
