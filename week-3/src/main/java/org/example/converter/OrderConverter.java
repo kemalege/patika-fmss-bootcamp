@@ -6,6 +6,7 @@ import org.example.model.Invoice;
 import org.example.model.Order;
 import org.example.model.Product;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,7 +18,7 @@ public class OrderConverter {
 
     public static Order toOrder(OrderSaveRequest request, List<Product> productList, Invoice invoice) {
         return new Order(
-                request.getCreateDate(),
+                LocalDateTime.now(),
                 productList,
                 UUID.randomUUID().toString(),
                 request.getCustomerId(),
