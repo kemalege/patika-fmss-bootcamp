@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 
 public class InvoiceResponse {
     private Long id;
+    private Long customerId;
     private BigDecimal totalAmount;
 
-    public InvoiceResponse(Long id, BigDecimal totalAmount) {
+    public InvoiceResponse(Long id, Long customerId, BigDecimal totalAmount) {
         this.id = id;
         this.totalAmount = totalAmount;
+        this.customerId = customerId;
     }
 
     public Long getId() {
@@ -25,5 +27,13 @@ public class InvoiceResponse {
 
     public void setTotalAmount(BigDecimal totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 }
